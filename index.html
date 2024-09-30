@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry Monitoring System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Entry Monitoring System</h1>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="num_samples">Number of Samples:</label>
+                <input type="number" class="form-control" id="num_samples" name="num_samples" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Data</button>
+        </form>
+
+        {% if tables %}
+            <h2 class="mt-5">Generated Data</h2>
+            <div>{{ tables|safe }}</div>
+            <h2 class="mt-5">Entry Frequency Histogram</h2>
+            <img src="{{ image_path }}" alt="Histogram">
+        {% endif %}
+    </div>
+</body>
+</html>
